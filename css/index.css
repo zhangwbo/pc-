@@ -1,0 +1,58 @@
+/*reset css*/
+html,body{height: 100%;overflow: hidden;}
+html,body,h1,h2,h3,h4,h5,h6,p,ul,li{margin: 0px;padding: 0px;font: 14px "微软雅黑";}
+a{text-decoration: none;display: block;}
+li{list-style: none;}
+img{display: block;}
+
+/*清除浮动*/
+.clearfix{*zoom: 1;}
+.clearfix:after{content: "";display: block;clear: both;}
+
+/*头部*/
+#wrap{
+    height: 100%;
+}
+.header{
+    width: 100%;
+    background: lightblue;
+}
+.headerWrap{
+    height: 80px;
+    width: 1100px;
+    margin: 0 auto;
+    background:goldenrod;
+}
+.logo{
+    float: left;
+    margin-top: 15px;
+}
+.musicicon{
+    float: left;
+    margin-top: 50px;
+}
+.nav{
+    float: right;
+    margin-top: 50px;
+}
+.nav li:hover .down{
+    width: 100%;
+
+}
+.nav li{
+    float: left;
+    margin-left: 40px;
+    position: relative;
+    cursor: pointer;
+}
+.up{
+    color: #009EE0;
+}
+.down{
+    width: 0;
+    overflow: hidden;
+    position: absolute;
+    top:0;
+    left: 0;
+    transition: width 1s;
+}

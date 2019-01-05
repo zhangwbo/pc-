@@ -79,19 +79,134 @@ img{display: block;}
     left:0;
     height: 500%;
     width: 100%;
+    transition: top 1s;
 }
 .contentList>li{
     position: relative;
     height: 20%;
-    background: lightseagreen;
+
 }
 .contentList section{
     width: 1100px;
     height: 520px;
-    background: gold;
     position: absolute;
     top:50%;
     left: 50%;
     margin-left: -550px;
     margin-top: -260px;
+}
+.contentList>li:nth-child(1){
+    background-image: url(../img/bg1.jpg); 
+}
+.contentList>li:nth-child(2){
+    background-image: url(../img/bg2.jpg);
+}
+.contentList>li:nth-child(3){
+    background-image: url(../img/bg3.jpg);
+}
+.contentList>li:nth-child(4){
+    background-image: url(../img/bg4.jpg);
+}
+.contentList>li:nth-child(5){
+    background-image: url(../img/bg5.jpg);
+}
+
+.home-carousel{
+    height: 520px;
+    position: relative;
+    transform-style:  preserve-3d;
+    perspective: 1000px;
+
+}
+.home-carousel li{
+    width: 1100px;
+    height: 520px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    line-height: 520px;
+    color: #fff;
+    visibility: hidden;
+}
+.common-title{
+    font-size:80px;
+    line-height:0.8;
+    font-weight:bold;
+    letter-spacing:-5px;
+}
+.home-carousel .active{
+    visibility: visible;
+}
+
+.home-carousel li:nth-child(1){
+    background:#dc6c5f;
+}
+.home-carousel li:nth-child(2){
+    background:#95dc84;
+}
+.home-carousel li:nth-child(3){
+    background:#64b9d2;
+}
+.home-carousel li:nth-child(4){
+    background:#000000;
+}
+
+.home-point{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.home-point li{
+    float: left;
+    border-radius: 50%;
+    width:20px;
+    height:20px;
+    background: rgba(255,255,255,0.5);
+    margin:2px;
+    box-shadow:0 0 4px rgba(25,25,25,0.8);
+    cursor: pointer;
+}
+.home-point .active{
+    background: #ffffff;
+}
+
+.home-carousel .leftHide{
+    visibility: hidden;
+    animation:leftHide 2s;
+}
+.home-carousel .rightShow{
+    visibility: visible;
+    animation:rightShow 2s;
+}
+.home-carousel .leftShow{
+    visibility: visible;
+    animation:leftShow 2s;
+}
+.home-carousel .rightHide{
+    visibility: hidden;
+    animation:rightHide 2s;
+}
+
+@keyframes leftHide {
+    0%{visibility: visible;}
+    50%{transform: translateX(-40%) rotateY(30deg) scale(.8);}
+    100%{transform: translateZ(-200px);visibility: hidden;}
+}
+@keyframes rightShow {
+    0%{transform: translateZ(-200px);visibility: hidden;}
+    50%{transform: translateX(40%) rotateY(-30deg) scale(.8);}
+    100%{visibility: visible;}
+}
+
+@keyframes leftShow {
+    0%{transform: translateZ(-200px);visibility: hidden;}
+    50%{transform: translateX(-40%) rotateY(30deg) scale(.8);}
+    100%{visibility: visible;}
+}
+@keyframes rightHide{
+    0%{visibility: visible;}
+    50%{transform: translateX(40%) rotateY(-30deg) scale(.8);}
+    100%{transform: translateZ(-200px);visibility: hidden;}
 }

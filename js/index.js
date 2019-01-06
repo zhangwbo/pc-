@@ -1,14 +1,20 @@
 window.onload = function () {
-    //头部JS
+
     var liNodes = document.querySelectorAll('.nav li');
     var arrow = document.querySelector('.arrow');
     var downNodes = document.querySelectorAll('.down');
     var arrowWidth = arrow.offsetWidth / 2;
+
+    var contentList = document.querySelector('.contentList');
+    var content = document.querySelector('.content');
+    var contentHeight = content.offsetHeight;
+    var nowIndex = 0;
+    var wheelTimer = null;
+
+    //头部JS
     header();
     function header() {
-
-
-        arrow.style.left = liNodes[0].offsetLeft + liNodes[0].offsetWidth / 2
+     arrow.style.left = liNodes[0].offsetLeft + liNodes[0].offsetWidth / 2
             - arrowWidth + 'px';
         downNodes[0].style.width = '100%';
         for (var i = 0; i < liNodes.length; i++) {
@@ -23,7 +29,8 @@ window.onload = function () {
     }
 
     //公共移动函数
-    function move() {
+    move(1);
+    function move(nowIndex) {
         for (var j = 0; j < downNodes.length; j++) {
             downNodes[j].style.width = '0';
 
@@ -32,15 +39,10 @@ window.onload = function () {
         //点击那个LI就让箭头到那个LI下面
         arrow.style.left = liNodes[nowIndex].offsetLeft + liNodes[nowIndex].offsetWidth / 2
             - arrowWidth + 'px';
-        contentList.style.top = -nowIndex * contentHeight + 'px';
+        contentList.style.top = - nowIndex * contentHeight + 'px';
     }
 
-    //获取
-    var contentList = document.querySelector('.contentList');
-    var content = document.querySelector('.content');
-    var contentHeight = content.offsetHeight;
-    var nowIndex = 0;
-    var wheelTimer = null;
+
     //滚动事件
     document.onmousewheel = wheel;
     document.addEventListener('DOMMouseScroll', wheel);
@@ -144,7 +146,6 @@ window.onload = function () {
     function autoplay() {
         timer = setInterval(function () {
             nowIndex++;
-            console.log(nowIndex);
             if (nowIndex >= 4) nowIndex = 0;
             //右图出现
             carouselLiNodes[nowIndex].className = 'common-title rightShow';

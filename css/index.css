@@ -9,6 +9,9 @@ img{display: block;}
 .clearfix{*zoom: 1;}
 .clearfix:after{content: "";display: block;clear: both;}
 
+/*公共样式*/
+.commonText{ color:white; line-height:1.5; font-size:15px;}
+
 /*头部*/
 #wrap{
     height: 100%;
@@ -63,7 +66,7 @@ img{display: block;}
     transition: left 1s;
     z-index: 10;
 }
-
+/*内容区*/
 .content{
     position: absolute;
     top:80px;
@@ -73,6 +76,7 @@ img{display: block;}
     margin: auto;
     overflow: hidden;
 }
+/*第一屏*/
 .contentList{
     position: absolute;
     top: 0;
@@ -130,6 +134,7 @@ img{display: block;}
     visibility: hidden;
 }
 .common-title{
+    color:#009ee0;
     font-size:80px;
     line-height:0.8;
     font-weight:bold;
@@ -199,7 +204,6 @@ img{display: block;}
     50%{transform: translateX(40%) rotateY(-30deg) scale(.8);}
     100%{visibility: visible;}
 }
-
 @keyframes leftShow {
     0%{transform: translateZ(-200px);visibility: hidden;}
     50%{transform: translateX(-40%) rotateY(30deg) scale(.8);}
@@ -210,3 +214,70 @@ img{display: block;}
     50%{transform: translateX(40%) rotateY(-30deg) scale(.8);}
     100%{transform: translateZ(-200px);visibility: hidden;}
 }
+
+/*第二屏*/
+.course-title{
+    margin: 50px;
+}
+.course-content{
+    width: 400px;
+    margin-left: 50px;
+    color: #fff;
+}
+.course-list{
+    position: absolute;
+    top: 70px;
+    right: 50px;
+    width: 480px;
+}
+.course-list li{
+    position: relative;
+    float: left;
+    width: 120px;
+    height: 132px;
+}
+.course-list .back{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    box-sizing: border-box;
+    background: #009EE0;
+    padding: 15px;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    transition: transform 1s;
+}
+.course-list .front{
+    height: 100%;
+    background-image: url(../img/pcwelt.png);
+    background-repeat:no-repeat;
+    background-position: center;
+    transition: transform 1s;
+}
+.course-list li:hover .back{
+    transform: rotateY(360deg);
+}
+.course-list li:hover .front{
+    transform: rotateY(180deg);
+}
+.course-line{
+    position: absolute;
+    top: 70px;
+    right: 50px;
+    width: 480px;
+    height: 410px;
+}
+.course-line li{
+    float: left;
+    position: absolute;
+    top: -5px;
+    width: 9px;
+    height: 410px;
+    background-image: url(../img/plus_row.png);
+}
+.course-line li:nth-child(1){right: -6px;}
+.course-line li:nth-child(2){right: 114px;}
+.course-line li:nth-child(3){right: 234px;}
+.course-line li:nth-child(4){right: 354px;}
+.course-line li:nth-child(5){right: 474px;}

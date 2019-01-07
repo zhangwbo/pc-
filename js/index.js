@@ -29,7 +29,7 @@ window.onload = function () {
     }
 
     //公共移动函数
-    move(2);
+    move(3);
     function move(nowIndex) {
         for (var j = 0; j < downNodes.length; j++) {
             downNodes[j].style.width = '0';

@@ -19,6 +19,11 @@ window.onload = function () {
   var lastIndex = 0;
   var lastTime = 0;
 
+  var navBarUlNode = document.querySelector('.nav-bar');
+  var navBarLlNodes = document.querySelectorAll('.nav-bar li');
+
+  var musiciconNode = document.querySelector('.musicicon');
+  var musicNode = document.querySelector('.music');
     //头部JS
     header();
     function header() {
@@ -37,17 +42,25 @@ window.onload = function () {
     }
 
     //公共移动函数
-    move(1);
+    move(0);
     function move(nowIndex) {
-        for (var j = 0; j < downNodes.length; j++) {
-            downNodes[j].style.width = '0';
-
-        }
+        // for (var j = 0; j < downNodes.length; j++) {
+        //     downNodes[j].style.width = '0';
+        //     navBarLlNodes[j].className = '';
+        //
+        // }
+        downNodes[lastIndex].style.width = '';
+        navBarLlNodes[lastIndex].className = '';
         downNodes[nowIndex].style.width = '100%';
+
         //点击那个LI就让箭头到那个LI下面
         arrow.style.left = liNodes[nowIndex].offsetLeft + liNodes[nowIndex].offsetWidth / 2
             - arrowWidth + 'px';
         contentList.style.top = - nowIndex * contentHeight + 'px';
+        navBarLlNodes[nowIndex].className = 'active';
+
+        lastIndex = nowIndex;
+
     }
 
 
@@ -261,11 +274,26 @@ window.onload = function () {
     },1000/60)
   }
 
+  //侧边导航
+  for (var i = 0; i < navBarLlNodes.length; i++) {
+    navBarLlNodes[i].index = i;
+    navBarLlNodes[i].onclick = function () {
+      nowIndex = this.index;
+      move(nowIndex);
+    }
+  }
 
+  //音乐播放
+  musiciconNode.onclick = function () {
+    if(musicNode.paused){
+      this.style.backgroundImage = 'url(img/musicon.gif)';
+      musicNode.play();
+    }else{
+      this.style.backgroundImage = 'url(img/musicoff.gif)';
+      musicNode.pause();
+    }
 
-
-
-
+  }
 
 
 
